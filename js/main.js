@@ -117,5 +117,36 @@ $(document).ready(function () {
         },
       }
     )
-  })
+  });
+
 })
+
+
+let buttonCountPlus = document.getElementById("buttonCountPlus");
+let buttonCountMinus = document.getElementById("buttonCountMinus");
+let count = document.getElementById("buttonCountNumber");
+let number = document.getElementById('buttonCountNumber').value;
+
+buttonCountPlus.onclick = function() {
+if (number <= 14) {
+  number++;
+  count.innerHTML = number;
+  document.getElementById('buttonCountNumber').value =number;
+  console.log('прибавили');
+  console.log(number);
+} else {
+  alert ('ОЧЕНЬ БОЛЬШОЙ БУКЕТ');
+};
+};
+
+buttonCountMinus.onclick = function() {
+  if (number >= 2) {
+    number--;
+    count.innerHTML = number;
+    document.getElementById('buttonCountNumber').value =number;
+    console.log('отняли');
+  console.log(number);
+  } else {
+    alert ('В БУКЕТЕ НЕ БУДЕТ ЦВЕТОВ');
+  };
+};
