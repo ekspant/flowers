@@ -252,7 +252,14 @@ body {
   text-align: center;
   border: 3px solid #ffffff;
   padding: 33px 35px 30px 35px;
-  margin-top: 27px;
+  margin-bottom: 27px;
+}
+
+.card-image {
+  display: block;
+  max-width: 118px;
+  height: 88px;
+  margin: auto;
 }
 
 .card-title {
@@ -445,17 +452,15 @@ body {
   font-size: 18px;
 }
 
-@media (max-width:1200px) {
-
-}
 
 @media (max-width: 768px) {
   .header {
     text-align: center;
   }
   .header-contacts {
+    margin: 0 auto;
     text-align:center;
-    width: 100%;
+
   }
   .hero {
     padding-top: 50px;
