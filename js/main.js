@@ -121,32 +121,25 @@ $(document).ready(function () {
 
 })
 
+const counter =function  (){
+  
+const btns = document.querySelectorAll('.counter_button');
 
-let buttonCountPlus = document.getElementById("buttonCountPlus");
-let buttonCountMinus = document.getElementById("buttonCountMinus");
-let count = document.getElementById("buttonCountNumber");
-let number = document.getElementById('buttonCountNumber').value;
+btns.forEach(btn => {
+  btn.addEventListener('click',function() {
+    const direction = this.dataset.direction;
+    const inp = this.parentElement.querySelector('.counter_value'); /* кликнули, подняись к родителю, и внутри родителя ищем инпут */
+    const currentValue = +inp.value;  /* текущее значение инпута в числовом виде*/
+    let newValue;
 
-buttonCountPlus.onclick = function() {
-if (number <= 14) {
-  number++;
-  count.innerHTML = number;
-  document.getElementById('buttonCountNumber').value =number;
-  console.log('прибавили');
-  console.log(number);
-} else {
-  alert ('ОЧЕНЬ БОЛЬШОЙ БУКЕТ');
-};
-};
+    if (direction === 'Plus') {
+      newValue = currentValue +1;
+    } else {
+      newValue = currentValue -1 > 0 ? currentValue -1 :0;  /* ПРОВЕРКА НА 0 */
+    }
+    inp.value = newValue;
+  })
 
-buttonCountMinus.onclick = function() {
-  if (number >= 2) {
-    number--;
-    count.innerHTML = number;
-    document.getElementById('buttonCountNumber').value =number;
-    console.log('отняли');
-  console.log(number);
-  } else {
-    alert ('В БУКЕТЕ НЕ БУДЕТ ЦВЕТОВ');
-  };
-};
+})
+}
+counter();
