@@ -117,29 +117,51 @@ $(document).ready(function () {
         },
       }
     )
-  });
-
-})
-
-const counter =function  (){
-  
-const btns = document.querySelectorAll('.counter_button');
-
-btns.forEach(btn => {
-  btn.addEventListener('click',function() {
-    const direction = this.dataset.direction;
-    const inp = this.parentElement.querySelector('.counter_value'); /* кликнули, подняись к родителю, и внутри родителя ищем инпут */
-    const currentValue = +inp.value;  /* текущее значение инпута в числовом виде*/
-    let newValue;
-
-    if (direction === 'Plus') {
-      newValue = currentValue +1;
-    } else {
-      newValue = currentValue -1 > 0 ? currentValue -1 :0;  /* ПРОВЕРКА НА 0 */
-    }
-    inp.value = newValue;
   })
-
 })
+
+/* Стрелка ::after  меняет направление после нажатия */
+var btn1 = document.getElementById('lmore')
+function example() {
+  document.getElementById('more').classList.add('more.active')
 }
-counter();
+btn1.onclick = example
+
+/* ./ ::after Стрелка меняет направление после нажатия */
+
+/* открытие по нажатию "Все цветы" */
+let coll = document.getElementsByClassName('collapsibe')
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener('click', function () {
+    this.classList.toggle('active')
+    let loadmore = this.nextElementSibling
+    if (loadmore.style.maxHeight) {
+      loadmore.style.maxHeight = null
+    } else {
+      loadmore.style.maxHeight = loadmore.scrollHeight + 'px'
+    }
+  })
+}
+/* /. "Все цветы"*/
+
+const counter = function () {
+  const btns = document.querySelectorAll('.counter_button')
+  btns.forEach((btn) => {
+    btn.addEventListener('click', function () {
+      const direction = this.dataset.direction
+      const inp = this.parentElement.querySelector(
+        '.counter_value'
+      ) /* кликнули, подняись к родителю, и внутри родителя ищем инпут */
+      const currentValue = +inp.value /* текущее значение инпута в числовом виде*/
+      let newValue
+
+      if (direction === 'Plus') {
+        newValue = currentValue + 1
+      } else {
+        newValue = currentValue - 1 > 0 ? currentValue - 1 : 0 /* ПРОВЕРКА НА 0 */
+      }
+      inp.value = newValue
+    })
+  })
+}
+counter()
