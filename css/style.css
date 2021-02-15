@@ -344,10 +344,13 @@ body {
 .more {
   font-size: 14px;
   color: #f24841;
-  display: block;
+  display:block;
   text-align: center;
   margin-top: 39px;
+  margin-bottom: 20px;
   padding: 10px;
+  cursor: pointer;
+  
 }
 .more::after {
   content: '';
@@ -358,6 +361,29 @@ body {
   margin-left: 14px;
   vertical-align: middle;
 }
+.more.active::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 4px;
+  background: url('../img/arow-alld.png') no-repeat center;
+  margin-left: 14px;
+  vertical-align: middle;
+}
+
+.active,
+.collapsibe:hover{
+  display: block;
+  text-align: center;
+}
+
+.loadmore {
+  background-color:#292929;
+  overflow: hidden;
+  max-height: 0;
+
+}
+
 .offer {
   padding-top: 100px;
   padding-bottom: 100px;
