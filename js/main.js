@@ -120,6 +120,29 @@ $(document).ready(function () {
   })
 })
 
+
+/* Выбираем цвет */
+const colorValue = document.querySelectorAll("input[name=color]");
+/* const inpColor = document.body; */
+
+const inpColor = document.getElementById("only_num");
+
+colorValue.forEach((el)=> {
+  
+  el.addEventListener('input',()=>{
+    if (el.checked){
+      console.log(el.value);
+      if (inpColor != el.value) {
+        inpColor.style.backgroundColor = el.value;
+        console.log('применения цвета от радиобаттон');
+        }
+    }
+    });
+  });
+
+/* ./выбираем цвет */
+
+
 /* Стрелка ::after  меняет направление после нажатия */
 var btn1 = document.getElementById('lmore')
 function example() {
@@ -164,4 +187,4 @@ const counter = function () {
     })
   })
 }
-counter()
+counter();
